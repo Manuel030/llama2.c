@@ -10,7 +10,7 @@ $ ./run
 
 #include <stdio.h>
 #include <stdlib.h>
-#include <time.h>
+#include <sys/time.h>
 #include <math.h>
 #include <string.h>
 #include <unistd.h>
@@ -354,13 +354,24 @@ int argmax(float* v, int n) {
 
 // ----------------------------------------------------------------------------
 
+// long time_in_ms() {
+//     struct timespec time;
+//     // Get the current time with nanosecond precision
+//     if (clock_gettime(CLOCK_REALTIME, &time) == 0) {
+//         return time.tv_sec * 1000 + time.tv_nsec / 1000000;
+//     } else {
+//         perror("clock_gettime");
+//         return -1; // Return -1 to indicate an error
+//     }
+// }
+
 long time_in_ms() {
-    struct timespec time;
-    // Get the current time with nanosecond precision
-    if (clock_gettime(CLOCK_REALTIME, &time) == 0) {
-        return time.tv_sec * 1000 + time.tv_nsec / 1000000;
+    struct timeval time;
+    // Get the current time with microsecond precision
+    if (gettimeofday(&time, NULL) == 0) {
+        return time.tv_sec * 1000 + time.tv_usec / 1000;
     } else {
-        perror("clock_gettime");
+        perror("gettimeofday");
         return -1; // Return -1 to indicate an error
     }
 }
