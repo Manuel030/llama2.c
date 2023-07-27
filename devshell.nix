@@ -2,9 +2,6 @@
 
 with pkgs;
 
-# Configure your development environment.
-#
-# Documentation: https://github.com/numtide/devshell
 devshell.mkShell {
   name = "android-project";
   motd = ''
@@ -29,5 +26,7 @@ devshell.mkShell {
     android-sdk
     gradle
     jdk11
+    gcc
+    wget
   ];
 }
