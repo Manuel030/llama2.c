@@ -30,6 +30,8 @@ chmod +x llama2
 ./llama2 model.bin
 ```
 
+[Llama2 in Termux](assets/llama2_in_termux.webm)
+
 ## run as shared lib
 
 wip
