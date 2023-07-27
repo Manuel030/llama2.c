@@ -30,7 +30,7 @@ chmod +x llama2
 ./llama2 model.bin
 ```
 
-[Llama2 in Termux](assets/llama2_in_termux.gif)
+![Llama2 in Termux](assets/llama2_in_termux.gif)
 
 ## run as shared lib
 
